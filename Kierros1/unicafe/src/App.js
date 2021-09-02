@@ -9,7 +9,7 @@ const Header = ({text}) => <h1>{text}</h1>
 const StatisticLine = (props) => <li> {props.text} {props.value} </li>
 
 
-const Statistics = ({parts}) => {
+const StatisticsOld = ({parts}) => {
   const totalCount = parts.reduce( (prevAmount, currentAmount) => prevAmount + currentAmount.type, 0 )
   const totalScore = parts[0].type - parts[2].type   
   const positive = (parts[0].type / totalCount)*100
@@ -26,7 +26,7 @@ const Statistics = ({parts}) => {
   )  
 } 
 
-const Statistics2 = ({parts}) => {
+const Statistics = ({parts}) => {
   const totalCount = parts.reduce( (prevAmount, currentAmount) => prevAmount + currentAmount.type, 0 )
   const totalScore = parts[0].type - parts[2].type   
   const positive = (parts[0].type / totalCount)*100
@@ -85,7 +85,7 @@ const App = () => {
       <Button handleClick = {() => setNeutral(neutral + 1)} text = {'neutral'}/>
       <Button handleClick = {() => setBad(bad + 1)} text = {'bad'}/>
       <Header text = {'statistics'} />
-      <Statistics2 parts = {feedbacks} />
+      <Statistics parts = {feedbacks} />
     </div>
   )
 }
